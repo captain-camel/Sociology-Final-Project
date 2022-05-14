@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'main/questions.css' %}">
+
+    <script type="text/javascript">
+        function setSubmitButtonState(questionText) {
+
+            var button = document.getElementById('question-form-submit')
+     
+            if (questionText.value.trim() != '') {
+                button.disabled = false;
+            } else {
+                button.disabled = true;
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="background">
+            <div class="header-content">
+                <h1 class="header-title">Ask a question</h1>
+
+                <form action="{% url 'ask' %}" method="post" class="question-form">
+                    {% csrf_token %}
+                    <textarea name="text" id="question-text" placeholder="Placeholder text" onkeyup="setSubmitButtonState(this)" class="question-form-text"></textarea>
+
+                    <div class="question-form-name-submit">
+                        <input type="text" name="author" id="author" placeholder="Your name" class="question-form-name">
+                        <input type="submit" value="Submit" disabled="true" class="question-form-submit" id="question-form-submit">
+                    </div>
+
+                    <p class="question-form-note">Leave empty to submit anonymously</p>
+                </form>
+            </div>
+        </div>
+    
+        <div class="waves">
+            <div class="wave wave-translucent"></div>
+            <div class="wave wave-white"></div>
+        </div>
+    </div>
+
+    <div class="content">
+        {% for question in questions %}
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-profile-image {{ question.color }}">{{ question.author_first_char }}</div>
+                    <h3 class="card-author">{{ question.author_formatted }}</h3>
+
+                    <div class="card-header-spacer"></div>
+
+                    <h4 class="card-date">{{ question.date_formatted }}</h4>
+                </div>
+
+                <div class="card-content">
+                    <p class="card-question">{{ question.text }}</p>
+
+                    <div class="card-seperator"></div>
+
+                    {% for answer in question.answer_set.all %}
+                        <p class="card-answer">{{ answer.text }}</p>
+                    {% endfor %}
+
+                    <form action="{% url 'answer' question.id %}" method="post" class="answer-form">
+                        {% csrf_token %}
+                        <input type="text" name="text" id="answer-text" placeholder="Answer this question yourself..." class="answer-form-text">
+                        <input type="submit" value="Answer" class="answer-form-submit">
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

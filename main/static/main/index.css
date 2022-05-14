@@ -1,0 +1,163 @@
+@font-face {
+    font-family: "Poppins";
+    src: url("fonts/Poppins-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("fonts/Poppins-SemiBold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+html, body {
+    margin: 0;
+
+    overflow-x: hidden;
+    max-width: 100%;
+
+    font-family: Poppins;
+}
+
+.header {
+    position: relative;
+
+    color: white;
+}
+
+.background {
+    position: relative;
+
+    width: 100%;
+    min-height: 700px;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    
+    background: no-repeat top center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url("images/rainbow.png");
+    background-size: cover;
+}
+
+.header-content {
+    position: relative;
+    top: 0;
+
+    margin: 70px;
+    margin-bottom: 150px;
+}
+
+@media (min-width: 1200px) {
+    .header-content {
+        display: flex;
+        flex: 1;
+        flex-direction: row;
+    }
+
+    .header-content-left {
+        padding-right: 50px;
+    }
+
+    .header-content-right {
+        padding-left: 50px;
+    }
+}
+
+.header-content-left {
+    flex: 0 1 auto;
+}
+
+.header-title {
+    margin: 0;
+
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.header-seperator {
+    width: 2px;
+
+    flex: none;
+
+    background: white;
+}
+
+.header-content-right {
+    margin-top: auto;
+    margin-bottom: auto;
+
+    flex: 0 1 auto;
+}
+
+a:link, a:visited {
+    padding: 10px 20px;
+
+    background-color: white;
+    color: black;
+    
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+  
+a:hover, a:active {
+    background-color: lightgray;
+    color: black;
+}
+
+.waves {
+    position: absolute;
+    bottom: 0;
+
+    height: 300px;
+    width: 100%;
+
+    transform: scale(1, 0.5);
+    transform-origin: bottom;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+
+    width: 6400px;
+    height: 200px;
+
+    background: url("images/wave.svg") repeat-x;
+    background-position: bottom;
+}
+
+.wave-translucent {
+    opacity: 50%;
+
+    animation: wave 5s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+}
+
+.wave-white {
+    transform: scale(1, 0.5);
+    -webkit-transform: scale(1, 0.5);
+    transform-origin: bottom;
+
+    opacity: 1;
+
+    animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -.125s infinite;
+}
+
+@keyframes wave {
+    0% {
+        margin-left: 0;
+    }
+    100% {
+        margin-left: -1600px;
+    }
+}
+
+.content {
+    position: relative;
+    
+    margin: 50px;
+    margin-top: 0;
+}
