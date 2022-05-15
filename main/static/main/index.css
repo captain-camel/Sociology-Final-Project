@@ -168,6 +168,8 @@ html, body {
 }
 
 .resource {
+    margin-bottom: 20px;
+
     display: flex;
     flex-direction: row;
 }
