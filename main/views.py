@@ -1,13 +1,20 @@
 import random
+import resource
 
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 
-from .models import Question, Answer
+from .models import Question, Answer, Resource
 
 def index(request):
-    return render(request, 'main/index.html')
+    resources = Resource.objects.all()
+
+    context = {
+        'resources': resources,
+    }
+
+    return render(request, 'main/index.html', context)
 
 def questions(request):
     questions = Question.objects.order_by('-date')

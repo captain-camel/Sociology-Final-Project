@@ -92,7 +92,7 @@ html, body {
     flex: 0 1 auto;
 }
 
-a:link, a:visited {
+.questions-link:link, .questions-link:visited {
     padding: 10px 20px;
 
     background-color: white;
@@ -103,9 +103,8 @@ a:link, a:visited {
     display: inline-block;
 }
   
-a:hover, a:active {
+.questions-link:hover, .questions-link:active {
     background-color: lightgray;
-    color: black;
 }
 
 .waves {
@@ -160,4 +159,39 @@ a:hover, a:active {
     
     margin: 50px;
     margin-top: 0;
+}
+
+.resource {
+    display: flex;
+    flex-direction: row;
+}
+
+.resource-name {
+    margin: 0;
+}
+
+.resource-name a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.resource-left {
+    margin-right: 30px;
+}
+
+.resource-link:link, .resource-link:visited {
+    margin-top: auto;
+    margin-bottom: auto;
+
+    padding: 10px 40px;
+
+    background-color: lightgray;
+    color: black;
+    
+    text-align: center;
+    text-decoration: none;
+}
+  
+.resource-link:hover, .resource-link:active {
+    background-color: lightgray;
 }

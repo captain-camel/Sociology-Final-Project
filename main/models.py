@@ -30,3 +30,8 @@ class Answer(models.Model):
     
     def __string__(self):
         return self.text
+
+class Resource(models.Model):
+    name = models.TextField()
+    description = models.TextField()
+    link = models.URLField()
