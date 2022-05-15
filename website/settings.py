@@ -18,7 +18,7 @@ import dj_database_url
 
 from django.core.management.utils import get_random_secret_key
 
-DEVELOPMENT_MODE = len(sys.argv) >= 2 and sys.argv[1] == 'runserver'
+DEVELOPMENT_MODE = os.getenv("DJANGO_PRODUCTION", "False") == "False"
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -85,19 +85,35 @@ WSGI_APPLICATION = 'website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-if DEVELOPMENT_MODE is True:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+if not (len(sys.argv) > 0 and sys.argv[1] == 'collectstatic'):
+    if DEVELOPMENT_MODE is True:
+        DATABASES = {
+            "default": {
+                "ENGINE": "django.db.backends.sqlite3",
+                "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+            }
         }
-    }
-elif len(sys.argv) > 0 and sys.argv[1] != 'collectstatic':
-    if os.getenv("DATABASE_URL", None) is None:
-        raise Exception("DATABASE_URL environment variable not defined")
-    DATABASES = {
-        "default": dj_database_url.parse(os.environ.get("DATABASE_URL")),
-    }
+    else:
+        if os.getenv("DATABASE_URL", None) is None:
+            raise Exception("DATABASE_URL environment variable not defined")
+        DATABASES = {
+            "default": dj_database_url.parse(os.environ.get("DATABASE_URL")),
+        }
+
+
+# if DEVELOPMENT_MODE is True:
+#     DATABASES = {
+#         "default": {
+#             "ENGINE": "django.db.backends.sqlite3",
+#             "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+#         }
+#     }
+# elif len(sys.argv) > 0 and sys.argv[1] != 'collectstatic':
+#     if os.getenv("DATABASE_URL", None) is None:
+#         raise Exception("DATABASE_URL environment variable not defined")
+#     DATABASES = {
+#         "default": dj_database_url.parse(os.environ.get("DATABASE_URL")),
+#     }
 
 # DATABASES = {
 #     'default': {
