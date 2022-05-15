@@ -187,6 +187,10 @@ html, body {
     margin-right: 30px;
 }
 
+.resource-separator {
+    flex-grow: 1;
+}
+
 .resource-link:link, .resource-link:visited {
     margin-top: auto;
     margin-bottom: auto;
