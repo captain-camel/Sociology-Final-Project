@@ -35,7 +35,7 @@
 
                 <div class="header-content-right">
                     <p class="questions-description">
-                        With these statistics in mind, we think it is important for people to have a resource on how to better accept those who belong to the LGBTQ+ community. Many people around you will belong to this community, and EVERYONE regardless of their sexual orientation deserves love and equal treatment. Please use this website as a way to better educate yourself on how to make you LGBTQ+ community feel welcomed and how to become a better ally. Together we can make our world a better place for everyone.
+                        Questions are common in our changing society. We would like to offer a place to ask whatever question you have. Anyone will have the opportunity to answer your question (Feel free to look through the questions already asked and if you feel yourself knowledgeable about it, please take a minute to answer it). You can ask the question anonymously and there is no judgment. The goal is to better educate in order to better our inclusivity and treatment of the LGBTQ+ community. They can be anything related to the LGBTQ+ topic, questions about how to act in specific situations are both welcome and encouraged. The only thing we ask is for you to be respectful in both your questions and/or answers, no hate will be tolerated.
                     </p>
 
                     <a href="{% url 'questions' %}" class="questions-link">Ask a question</a>
@@ -51,10 +51,11 @@
 
     <div class="content">
         <h3>
-            <a href="#sexual-orientations" class="content-link">Different Sexual Orientations Explained</a> •
-            <a href="#genders" class="content-link">Different Genders Explained</a> •
+            <a href="#sexual-orientations" class="content-link">Sexual Orientations Explained</a> •
+            <a href="#genders" class="content-link">Genders Explained</a> •
             <a href="#pronouns" class="content-link">Pronouns Explained</a> •
-            <a href="#10-steps" class="content-link">10 step guide to being the best ally you can</a>
+            <a href="#10-steps" class="content-link">How to be a good ally</a> •
+            <a href="#resoucres" class="content-link">LGBTQ Resources</a>
         </h3>
 
         <h1 id="sexual-orientations">Different Sexual Orientations Explained</h1>
@@ -210,8 +211,7 @@
 
         <div class="content-separator"></div>
 
-        <h1>LGBTQ Resources</h1>
-
+        <h1 class="resources">LGBTQ Resources</h1>
         {% for resource in resources %}
             <div class="resource">
                 <div class="resource-left">

@@ -67,7 +67,7 @@ html, body {
 }
 
 .header-content-left {
-    flex: 0 1 auto;
+    flex: 1 0 40%;
 }
 
 .header-title {
