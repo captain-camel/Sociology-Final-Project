@@ -78,7 +78,7 @@ html, body {
     color: lightgray;
 }
 
-.header-gw {
+.header-highlight {
     color: white;
     text-shadow: 0 0 6px rgba(255, 255, 255, 0.9);
 }
@@ -96,6 +96,8 @@ html, body {
     margin-bottom: auto;
 
     flex: 0 1 auto;
+
+    font-size: 20px;
 }
 
 .questions-link:link, .questions-link:visited {
@@ -165,6 +167,20 @@ html, body {
     
     margin: 50px;
     margin-top: 0;
+}
+
+.content-link:link, .content-link:visited {
+    color: rgb(92, 92, 92);
+}
+
+.content-link:hover, .content-link:active {
+    color: rgb(49, 49, 49);
+}
+
+.content-separator {
+    height: 2px;
+    
+    background-color: lightgray;
 }
 
 .resource {
