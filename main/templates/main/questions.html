@@ -28,7 +28,7 @@
 
                 <form action="{% url 'ask' %}" method="post" class="question-form">
                     {% csrf_token %}
-                    <textarea name="text" id="question-text" placeholder="Placeholder text" onkeyup="setSubmitButtonState(this)" class="question-form-text"></textarea>
+                    <textarea name="text" id="question-text" placeholder="Ask anything about sexual orientation, gender, etc..." onkeyup="setSubmitButtonState(this)" class="question-form-text"></textarea>
 
                     <div class="question-form-name-submit">
                         <input type="text" name="author" id="author" placeholder="Your name" class="question-form-name">
