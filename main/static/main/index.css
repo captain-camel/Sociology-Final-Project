@@ -169,6 +169,15 @@ html, body {
     margin-top: 0;
 }
 
+.credits {
+    color: gray;
+    font-size: 15px;
+}
+
+.credits a {
+    color: gray;
+}
+
 .content-link:link, .content-link:visited {
     color: rgb(92, 92, 92);
 }
